@@ -1,0 +1,20 @@
+{
+  "name": "Photo-gallery",
+  "private": true,
+  "version": "0.0.1",
+  "description": "it makes awesome things",
+  "keywords": [],
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "open": "0.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git clone https://github.com/Goye/photo-gallery.git"
+  },
+  "author": "Goye",
+  "license": "",
+  "bin": {
+    "start-server": "server.js"
+  }
+}
