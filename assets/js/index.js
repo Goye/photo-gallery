@@ -30,7 +30,7 @@ var GalleryList = Backbone.View.extend({
 	events: {
 		"click #nextImage":"nextImage",
 		"click #previousImage": "previousImage",
-    "click #image-thumbnail": "loadImage"
+    "click .image-thumbnail": "loadImage"
 	},
 	nextImage: function(event){
     event.preventDefault();
@@ -66,29 +66,29 @@ var GalleryList = Backbone.View.extend({
     );
     $('.description').html(
       "<p>"+
-      imageObj.title+ ' '+
+      "<span class='title'>" + imageObj.title+ ' '+ "</span>" +
       imageObj.date+ ' ' +
       imageObj.location+
       "</p>"
     );
+    /** Add the active class to the thumbnail */
+    $('.thumbnails a').removeClass('active');
+    $('.thumbnails').find("[data-id='" + id + "']").addClass('active');
 	},
   initialView: function (){
     /** load the first time the images */
     var imageObj = array[0],
         imageId  = 0;
-    $('.first-image').html(
-      "<img data-id='"+imageId+"' src='/assets/img/"+imageObj.image+"' alt='img'>"
-    );
-    $('.description').html(
-      "<p>"+
-      imageObj.title+ ' '+
-      imageObj.date+ ' ' +
-      imageObj.location+
-      "</p>"
-    );
+    /** Draw the thumbnails */
     for (var i in array){
-      $('.thumbnails').append("<a id='image-thumbnail' href='#' data-id='"+i+"'><img src='/assets/img/"+array[i].thumb_url+"' alt='img'></a>");
+      $('.thumbnails').append(
+        "<a class='image-thumbnail' href='#' data-id='"+i+"'>"+
+        "<img src='/assets/img/"+array[i].thumb_url+"' alt='img'></a>"
+      );
     }
+    /** Draw the principal image */    
+    this.changeContentImage(imageId);
+    
   }
 	
 });

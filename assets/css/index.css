@@ -1,13 +1,30 @@
+@font-face {
+    font-family: 'nexa_lightregular';
+    src: url('/assets/fonts/Nexa Light-webfont.eot');
+    src: url('/assets/fonts/Nexa Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/Nexa Light-webfont.woff2') format('woff2'),
+         url('/assets/fonts/Nexa Light-webfont.woff') format('woff'),
+         url('/assets/fonts/Nexa Light-webfont.ttf') format('truetype'),
+         url('/assets/fonts/Nexa Light-webfont.svg#nexa_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+  font-family: 'nexa_lightregular';
+}
+
 .carousel-control {
   padding-top:10%;
   width:8%;
-  margin: 130px 0 0 42px;
+  margin: 0;
 }
 
 .header {
   background-color: #005ba9;
   padding: 20px;
-  margin-bottom: 55px;
+  margin-bottom: 0;
 }
 
 .header h1 {
@@ -16,9 +33,9 @@
 }
 
 .main {
-  background-image: url("/assets/img/background.png");
+  background: url("/assets/img/background.png") no-repeat center top transparent;
   /*background-color: #c2beb8;*/
-  margin: -73px 0 0 -47px;
+  margin: 0 auto;
   height: 600px;
   width: auto;
 }
@@ -28,16 +45,83 @@
   height: 120px;
   width: auto;
 }
+.carousel {
+  display: block;
+  width: 684px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 40px;
+}
+
 
 .carousel-inner {
-  margin: 66px 0px 0px 452px;
-  float: left;
+  margin: 0 auto;
+  float: none;
+  width: 600px;
+  display: block;
+  position: relative;
 }
 
-.text-center: {
+.carousel-inner img {
+  margin: 0 auto;
+  border: 1px solid #fff;
+}
+
+.thumbnails-carousel {
+  padding: 30px;
+}
+.carousel-control.left,
+.carousel-control.right {
+  background: transparent;
+  width: 40px;
+}
+
+.carousel-control.left .glyphicon.glyphicon-chevron-left {
+  left: 0;
+  margin-left: 0;
+}
+
+.carousel-control.left .glyphicon.glyphicon-chevron-left:before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  background: url('/assets/img/left-arrow.png') no-repeat center center transparent;
+  display: block;
+  box-shadow: 0px 0px 5px #000;
+}
+
+.carousel-control.right .glyphicon.glyphicon-chevron-right {
+  right: 0;
+  margin-right: 0;
+  left: 0;
+}
+
+.carousel-control.right .glyphicon.glyphicon-chevron-right:before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  background: url('/assets/img/right-arrow.png') no-repeat center center transparent;
+  display: block;
+  box-shadow: 0px 0px 5px #000;
+}
+
+.description p {
   color: #ffff00;
+  line-height: 1.2;
+  font-size: 18px;
+}
+.description p .title {
+  font-size: 22px;
+  display: block;
 }
 
-
-
-
+.image-thumbnail img {
+  opacity: 0.5;
+}
+.image-thumbnail.active img {
+  border: 1px solid #009AF9;
+  opacity: 1;
+  width: 115px;
+}
