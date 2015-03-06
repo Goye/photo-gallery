@@ -1,9 +1,43 @@
 .carousel-control {
   padding-top:10%;
-  width:5%;
+  width:8%;
+  margin: 130px 0 0 42px;
 }
 
-.title {
-	text-align: center;
-	
+.header {
+  background-color: #005ba9;
+  padding: 20px;
+  margin-bottom: 55px;
 }
+
+.header h1 {
+  text-align: center;
+  color: #f5f815;
+}
+
+.main {
+  background-image: url("/assets/img/background.png");
+  /*background-color: #c2beb8;*/
+  margin: -73px 0 0 -47px;
+  height: 600px;
+  width: auto;
+}
+
+.footer {
+  background-image: url("/assets/img/footer.png");
+  height: 120px;
+  width: auto;
+}
+
+.carousel-inner {
+  margin: 66px 0px 0px 452px;
+  float: left;
+}
+
+.text-center: {
+  color: #ffff00;
+}
+
+
+
+
