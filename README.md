@@ -3,7 +3,7 @@ Photo Gallery
 ## To Run Locally
 
 ````
-git clone https://Goye-says@bitbucket.org/Goye-says/code-challenge.git
+git clone https://github.com/Goye/photo-gallery.git
 sudo npm install -g
 ````
 
