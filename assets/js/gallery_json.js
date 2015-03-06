@@ -45,8 +45,8 @@
     },
     {
       "id":"6",
-      "image":"image_3.jpg",
-      "thumb_url":"thumb_3.jpg",
+      "image":"image_6.jpg",
+      "thumb_url":"thumb_6.jpg",
       "title":"Sponsors of Tomorrow Booth",
       "date":"September 14, 2013",
       "location":"San Francisco, California"

@@ -21,11 +21,11 @@ var GalleryList = Backbone.View.extend({
     
 	},
 	/** Scope from the view */
-	el: '#container',
+	el: $('#container'),
   render: function(){
     array = this.collection.images;
-    this.firstPicture();
-
+    this.initialView();
+    return this;
   },
 	events: {
 		"click #nextImage":"nextImage",
@@ -34,25 +34,50 @@ var GalleryList = Backbone.View.extend({
 	},
 	nextImage: function(event){
     event.preventDefault();
-    console.log("here");
-		/** Put the class active and moving a position in the array */
+    /** Put the class active and moving a position in the array */
+    var id = $('.first-image img').data('id');
+        id++;
+    if(id === array.length){
+      id = 0;
+    }    
+    this.changeContentImage(id);
 	},
 	previousImage: function(event){
     event.preventDefault();
-		
+		var id = $('.first-image img').data('id');
+        id--;
+    if(id < 0){
+      id = array.length -1;
+    }
+    console.log("id", id);    
+    this.changeContentImage(id);
 	},
   loadImage: function(event){
     event.preventDefault();
-    console.log("here");
+    /** load the new image */
+    var id = $(event.currentTarget).data('id');
+    this.changeContentImage(id);
   },
-	changeContentImage:function(){
+	changeContentImage:function(id){
 		/** change the current image */
-	},
-  firstPicture: function (){
-    /** load the first time the images */
-    var imageObj = array[0];
+    var imageObj = array[id];
     $('.first-image').html(
-      "<img src='./assets/img/"+imageObj.image+"' alt='img'>"
+      "<img data-id='"+id+"' src='/assets/img/"+imageObj.image+"' alt='img'>"
+    );
+    $('.description').html(
+      "<p>"+
+      imageObj.title+ ' '+
+      imageObj.date+ ' ' +
+      imageObj.location+
+      "</p>"
+    );
+	},
+  initialView: function (){
+    /** load the first time the images */
+    var imageObj = array[0],
+        imageId  = 0;
+    $('.first-image').html(
+      "<img data-id='"+imageId+"' src='/assets/img/"+imageObj.image+"' alt='img'>"
     );
     $('.description').html(
       "<p>"+
@@ -62,7 +87,7 @@ var GalleryList = Backbone.View.extend({
       "</p>"
     );
     for (var i in array){
-      $('.thumbnails').append("<a id='image-thumbnail' href='#' data-id='"+array[i].id+"'><img src='./assets/img/"+array[i].thumb_url+"' alt='img'></a>");
+      $('.thumbnails').append("<a id='image-thumbnail' href='#' data-id='"+i+"'><img src='/assets/img/"+array[i].thumb_url+"' alt='img'></a>");
     }
   }
 	
